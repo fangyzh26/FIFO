@@ -1,0 +1,6 @@
+./write_full.v
+./tb_top_async_fifo.sv
+./sync_addr_gray.v
+./top_async_fifo.v
+./read_empty.v
+./ram.v
