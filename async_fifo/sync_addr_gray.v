@@ -15,13 +15,13 @@ module sync_addr_gray
     reg [FIFO_DEPTH_BIT:0] write_addr_gray_sync_temp1,write_addr_gray_sync_temp2;
     reg [FIFO_DEPTH_BIT:0] read_addr_gray_sync_temp1, read_addr_gray_sync_temp2; 
     
-    always @(posedge w_clk or posedge w_rst) begin //write_addr_gary delay 2 clks 
+    always @(posedge r_clk or posedge r_rst) begin//write_addr_gary delay 2 clks 
         write_addr_gray_sync_temp1 <= write_addr_gray;
         write_addr_gray_sync_temp2 <= write_addr_gray_sync_temp1;
         write_addr_gray_sync       <= write_addr_gray_sync_temp2;
     end
 
-    always @(posedge r_clk or posedge r_rst) begin //write_addr_gary delay 2 clks 
+     always @(posedge w_clk or posedge w_rst) begin//write_addr_gary delay 2 clks 
         read_addr_gray_sync_temp1 <= read_addr_gray;
         read_addr_gray_sync_temp2 <= read_addr_gray_sync_temp1;
         read_addr_gray_sync       <= read_addr_gray_sync_temp2;
